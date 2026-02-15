@@ -1,0 +1,155 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0f172a;
+  --text: white;
+  --nav: transparent;
+}
+
+.light {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --nav: #2563eb;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  height: 4px;
+  background: #22c55e;
+  width: 0%;
+  z-index: 2000;
+}
+
+.navbar {
+  position: fixed;
+  top: 4px;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: #2563eb;
+}
+
+.logo { font-size: 22px; font-weight: bold; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.underline {
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 60px;
+  background: #22c55e;
+  transition: 0.3s;
+}
+
+.menu-icon { display: none; font-size: 26px; cursor: pointer; }
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subtitle { font-size: 22px; margin: 10px 0; }
+
+.skill-list { list-style: none; font-size: 20px; }
+.skill-list li { margin: 8px 0; }
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #22c55e;
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 300px;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #22c55e;
+  border: none;
+  cursor: pointer;
+}
+
+#scrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px;
+  font-size: 18px;
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-icon { display: block; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #2563eb;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+  }
+
+  .nav-links.show { display: flex; }
+}
